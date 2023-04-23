@@ -17,6 +17,7 @@ bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 #  fish auto accept
 bindkey '^ ' autosuggest-accept
+bindkey -s '^q' '~/scripts/tmux-sessionizer.sh^M'
 
 # bun global bin
 export PATH="/Users/amirhosseinazizafshari/.bun/bin:$PATH"

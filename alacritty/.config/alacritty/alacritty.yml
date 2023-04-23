@@ -8,12 +8,14 @@
 #                                                                        _/       
 #                                                                   _/_/          
 
+live_config_reload: true
 window:
   padding:
     x: 0
   dynamic_padding: false
   decorations: buttonless
   option_as_alt: OnlyLeft
+  opacity: 0.8
 font:
   size: 16
   normal:
