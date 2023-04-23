@@ -2,3 +2,4 @@ nvim/.config/nvim/plugin
 nvim/.config/nvim/lua/.luarc.json
 karabiner/.config/karabiner/assets
 karabiner/.config/karabiner/automatic_backups
+gh/.config/gh/hosts.yml
