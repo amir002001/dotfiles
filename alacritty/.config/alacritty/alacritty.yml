@@ -1,0 +1,22 @@
+#
+#                                                                                 
+#       _/_/    _/                                _/    _/      _/                
+#    _/    _/  _/    _/_/_/    _/_/_/  _/  _/_/      _/_/_/_/_/_/_/_/  _/    _/   
+#   _/_/_/_/  _/  _/    _/  _/        _/_/      _/    _/      _/      _/    _/    
+#  _/    _/  _/  _/    _/  _/        _/        _/    _/      _/      _/    _/     
+# _/    _/  _/    _/_/_/    _/_/_/  _/        _/      _/_/    _/_/    _/_/_/      
+#                                                                        _/       
+#                                                                   _/_/          
+
+window:
+  padding:
+    x: 0
+  dynamic_padding: false
+  decorations: buttonless
+  option_as_alt: OnlyLeft
+font:
+  size: 16
+  normal:
+    family: IosevkaTerm Nerd Font
+    key_bindings:
+      - { key: Z, mods: Control, action: None }

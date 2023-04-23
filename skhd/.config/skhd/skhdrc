@@ -1,0 +1,14 @@
+## open terminal
+hyper - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
+
+
+## rotate tree 90
+hyper - r : yabai -m space --rotate 270
+
+## flip the tree vertically
+hyper - f : yabai -m space --mirror y-axis
+
+# cycle through windows
+# cycle backwards
+hyper - e : yabai -m window --focus east
+hyper - w : yabai -m window --focus west
