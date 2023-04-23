@@ -10,12 +10,14 @@ return require("packer").startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { { "nvim-lua/plenary.nvim" } },
     })
+
     use("nvim-telescope/telescope-symbols.nvim")
-    use("ThePrimeagen/harpoon")
     use("nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" })
     use("mbbill/undotree")
+
+    -- git
     use("tpope/vim-fugitive")
-    use("ThePrimeagen/vim-be-good")
+    use("lewis6991/gitsigns.nvim")
 
     -- Theme
     use({
