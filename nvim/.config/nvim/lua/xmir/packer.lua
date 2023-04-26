@@ -25,6 +25,8 @@ return require("packer").startup(function(use)
         as = "rose-pine",
     })
 
+    -- transparent bg
+    use("xiyaowong/transparent.nvim")
     -- null-ls and mason-null-ls
     use("jay-babu/mason-null-ls.nvim")
     use("jose-elias-alvarez/null-ls.nvim")
