@@ -7,8 +7,7 @@ lsp.ensure_installed({
     "tsserver",
     "bashls",
     "denols",
-    "pyright",
-    "rome@nightly",
+    "rome",
     "eslint",
     "tsserver",
     "volar",
@@ -100,6 +99,67 @@ lsp.configure("tsserver", {
 lsp.configure("denols", {
     root_dir = lspUtils.root_pattern("deno.json", "deno.jsonc"),
     single_file_support = false,
+})
+
+lsp.configure("tailwindcss", {
+    filetypes = {
+        -- html
+        "aspnetcorerazor",
+        "astro",
+        "astro-markdown",
+        "blade",
+        "clojure",
+        "django-html",
+        "htmldjango",
+        "edge",
+        "eelixir", -- vim ft
+        "elixir",
+        "ejs",
+        "erb",
+        "eruby", -- vim ft
+        "gohtml",
+        "haml",
+        "handlebars",
+        "hbs",
+        "html",
+        -- 'HTML (Eex)',
+        -- 'HTML (EEx)',
+        "html-eex",
+        "heex",
+        "jade",
+        "leaf",
+        "liquid",
+        "markdown",
+        "mdx",
+        "mustache",
+        "njk",
+        "nunjucks",
+        "php",
+        "razor",
+        "slim",
+        "twig",
+        -- css
+        "css",
+        "less",
+        "postcss",
+        "sass",
+        "scss",
+        "stylus",
+        "sugarss",
+        -- js
+        "javascript",
+        "javascriptreact",
+        "reason",
+        "rescript",
+        "typescript",
+        "typescriptreact",
+        -- mixed
+        "vue",
+        "svelte",
+        -- rust
+        "rust",
+    },
+    root_dir = lspUtils.root_pattern("tailwind.config.js", "tailwind.config.cjs"),
 })
 
 lsp.setup()

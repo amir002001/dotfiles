@@ -18,8 +18,8 @@ window:
   option_as_alt: OnlyLeft
   opacity: 0.8
 font:
-  size: 16
+  size: 14
   normal:
-    family: IosevkaTerm Nerd Font
+    family: Iosevka Nerd Font
     key_bindings:
       - { key: Z, mods: Control, action: None }

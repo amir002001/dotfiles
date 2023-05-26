@@ -59,3 +59,4 @@ export PATH=~/go/bin:$PATH
 
 # bun completions
 [ -s "/Users/amirhosseinazizafshari/.bun/_bun" ] && source "/Users/amirhosseinazizafshari/.bun/_bun"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
