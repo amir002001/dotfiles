@@ -46,11 +46,10 @@ export FZF_DEFAULT_OPTS="
 --reverse
 --height 60%
 --no-mouse
---color=fg:#908caa,bg:#191724,hl:#ebbcba
---color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
---color=border:#403d52,header:#31748f,gutter:#191724
---color=spinner:#f6c177,info:#9ccfd8,separator:#403d52
---color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
+--color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
+--color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
+--color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
 "
 
 export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"

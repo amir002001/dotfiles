@@ -20,10 +20,7 @@ return require("packer").startup(function(use)
     use("lewis6991/gitsigns.nvim")
 
     -- Theme
-    use({
-        "rose-pine/neovim",
-        as = "rose-pine",
-    })
+    use("Mofiqul/dracula.nvim")
 
     -- transparent bg
     use("xiyaowong/transparent.nvim")
