@@ -19,6 +19,7 @@ export PATH="/Users/amirhosseinazizafshari/.bun/bin:$PATH"
 
 plugins=(
     git
+    bazel
     docker
     zsh-autosuggestions
     fzf
