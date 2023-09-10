@@ -37,9 +37,11 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #   aliases
-alias vi="nvim"
-alias vim="nvim"
-alias oldvim="vim"
+if command -v nvim &> /dev/null; then
+    alias vi="nvim"
+    alias vim="nvim"
+    alias oldvim="vim"
+fi
 if command -v exa &> /dev/null; then
     alias ls='exa --git --icons --color=always --group-directories-first'
 fi
