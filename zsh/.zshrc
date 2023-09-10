@@ -47,7 +47,12 @@ if command -v exa &> /dev/null; then
 fi
 
 #   exports
-export FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+if command -v fd &> /dev/null; then
+    export FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
+    export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+fi
 export FZF_DEFAULT_OPTS="
 --bind='f2:toggle-preview,f4:execute($EDITOR {}),alt-w:toggle-preview-wrap,ctrl-d:half-page-down,ctrl-u:half-page-up,ctrl-y:execute-silent(echo {+} | pbcopy),ctrl-x:execute(rm -i {+})+abort,ctrl-l:clear-query'
 --preview-window='right:60%:wrap'
@@ -63,9 +68,6 @@ export FZF_DEFAULT_OPTS="
 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
 "
 
-export FZF_DEFAULT_COMMAND="fd --type f --type l $FD_OPTIONS"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
 export PATH=~/go/bin:$PATH
 
 # bun completions
@@ -73,4 +75,6 @@ export PATH=~/go/bin:$PATH
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 source /Users/amirhosseinazizafshari/.config/op/plugins.sh
 
-~/.scripts/cow-greet.sh
+if command -v cowsay &> /dev/null; then
+    ~/.scripts/cow-greet.sh
+fi
