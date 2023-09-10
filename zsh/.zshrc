@@ -5,6 +5,12 @@ export ZSH="$HOME/.oh-my-zsh"
 # Starship 🚀
 eval "$(starship init zsh)"
 
+# Home Brew
+if [ "$(arch)" = "arm64" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
 
 # keybinds
 #  macos goofy ah jump one word
@@ -34,7 +40,9 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 alias oldvim="vim"
-alias ls='exa --git --icons --color=always --group-directories-first'
+if command -v exa &> /dev/null; then
+    alias ls='exa --git --icons --color=always --group-directories-first'
+fi
 
 #   exports
 export FD_OPTIONS="--hidden --follow --exclude .git --exclude node_modules"
@@ -61,3 +69,4 @@ export PATH=~/go/bin:$PATH
 # bun completions
 [ -s "/Users/amirhosseinazizafshari/.bun/_bun" ] && source "/Users/amirhosseinazizafshari/.bun/_bun"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+source /Users/amirhosseinazizafshari/.config/op/plugins.sh

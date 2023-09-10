@@ -21,7 +21,7 @@ return require("packer").startup(function(use)
 
     -- Theme
     use("Mofiqul/dracula.nvim")
-
+    -- use({ "rose-pine/neovim", as = "rose-pine" })
     -- transparent bg
     use("xiyaowong/transparent.nvim")
     -- null-ls and mason-null-ls

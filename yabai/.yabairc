@@ -47,6 +47,7 @@ yabai -m config \
     mouse_drop_action swap
 
 yabai -m rule --add app="^System Settings$" sticky=on layer=above manage=off
+yabai -m rule --add app="^Simulator$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-Elements$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Alacritty$" sticky=on layer=above manage=off
 yabai -m rule --add app="^Karabiner-EventViewer$" sticky=on layer=above manage=off
@@ -60,5 +61,6 @@ yabai -m rule --add app="^CleanShot X$" sticky=off layer=above manage=off
 yabai -m rule --add app="Fantastical" manage=off
 yabai -m rule --add app="^Spotify$" manage=off
 yabai -m rule --add app="^Flow$" manage=off
+yabai -m rule --add app="^Voice Memos$" manage=off
 
 echo "yabai configuration loaded.."
