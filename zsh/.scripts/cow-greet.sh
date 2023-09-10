@@ -1,3 +1,4 @@
+#!/bin/zsh
 cowsay_commands=(
     "cowsay -f ~/.cowfiles/finn-and-jake.cow 'you are \"sed\"istic'"
     "cowsay -f ~/.cowfiles/alfred.cow 'Welcome home, sir. Shall I fetch the runbook?'"
