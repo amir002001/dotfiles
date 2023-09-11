@@ -1,3 +1,5 @@
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -6,10 +8,12 @@ export ZSH="$HOME/.oh-my-zsh"
 eval "$(starship init zsh)"
 
 # Home Brew
-if [ "$(arch)" = "arm64" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    eval "$(/usr/local/bin/brew shellenv)"
+if command -v /opt/homebrew/bin/brew &> /dev/null; then
+    if [ "$(arch)" = "arm64" ]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    else
+        eval "$(/usr/local/bin/brew shellenv)"
+    fi
 fi
 
 # keybinds
@@ -73,8 +77,11 @@ export PATH=~/go/bin:$PATH
 # bun completions
 [ -s "/Users/amirhosseinazizafshari/.bun/_bun" ] && source "/Users/amirhosseinazizafshari/.bun/_bun"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-source /Users/amirhosseinazizafshari/.config/op/plugins.sh
+if command -v op &> /dev/null; then
+    source /Users/amirhosseinazizafshari/.config/op/plugins.sh
+fi
 
 if command -v cowsay &> /dev/null; then
     ~/.scripts/cow-greet.sh
 fi
+
