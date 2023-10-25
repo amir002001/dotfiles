@@ -15,7 +15,7 @@ $n = "\e[48;5;95m  ";   #beard color
 $p = "\e[48;5;53m  ";   #purple
 $u = "\e[48;5;93m  ";   #light purple
 
-$the_cow = <<EOC;
+$the_cow = <<EOC
         $t
          $t         $b                $x
           $t      $b                    $x
