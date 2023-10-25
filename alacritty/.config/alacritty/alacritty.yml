@@ -1,12 +1,12 @@
 #
-#                                                                                 
-#       _/_/    _/                                _/    _/      _/                
-#    _/    _/  _/    _/_/_/    _/_/_/  _/  _/_/      _/_/_/_/_/_/_/_/  _/    _/   
-#   _/_/_/_/  _/  _/    _/  _/        _/_/      _/    _/      _/      _/    _/    
-#  _/    _/  _/  _/    _/  _/        _/        _/    _/      _/      _/    _/     
-# _/    _/  _/    _/_/_/    _/_/_/  _/        _/      _/_/    _/_/    _/_/_/      
-#                                                                        _/       
-#                                                                   _/_/          
+#
+#       _/_/    _/                                _/    _/      _/
+#    _/    _/  _/    _/_/_/    _/_/_/  _/  _/_/      _/_/_/_/_/_/_/_/  _/    _/
+#   _/_/_/_/  _/  _/    _/  _/        _/_/      _/    _/      _/      _/    _/
+#  _/    _/  _/  _/    _/  _/        _/        _/    _/      _/      _/    _/
+# _/    _/  _/    _/_/_/    _/_/_/  _/        _/      _/_/    _/_/    _/_/_/
+#                                                                        _/
+#                                                                   _/_/
 import:
   - ./rose-pine.yml
 live_config_reload: true
@@ -16,10 +16,10 @@ window:
   dynamic_padding: false
   decorations: buttonless
   option_as_alt: OnlyLeft
-  opacity: 0.8
+  opacity: 0.95
 font:
   size: 14
   normal:
-    family: Iosevka Nerd Font
+    family: VictorMono Nerd Font
     key_bindings:
       - { key: Z, mods: Control, action: None }
