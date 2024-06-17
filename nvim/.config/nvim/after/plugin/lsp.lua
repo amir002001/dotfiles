@@ -1,36 +1,11 @@
-local lsp = require("lsp-zero")
-local lspUtils = require("lspconfig.util")
-
-lsp.preset("recommended")
-
-lsp.ensure_installed({
-    "tsserver",
-    "bashls",
-    "denols",
-    "rome",
-    "eslint",
-    "tsserver",
-    "volar",
-    "lua_ls",
-    "tailwindcss",
-})
-
-local cmp = require("cmp")
+-- LOCALS
+local lsp_zero = require("lsp-zero")
+local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-    ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-    ["<C-y>"] = cmp.mapping.confirm({ select = true }),
-    ["<C-Space>"] = cmp.mapping.complete(),
-})
 
-lsp.set_preferences({
-    sign_icons = {},
-})
-
-lsp.setup_nvim_cmp({
-    mapping = cmp_mappings,
-})
+local mason = require('mason')
+local mason_lspconfig = require('mason-lspconfig')
+local lspconfig = require('lspconfig')
 
 local on_attach = function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
@@ -67,104 +42,31 @@ local on_attach = function(_, bufnr)
     end, opts)
 end
 
-lsp.on_attach(on_attach)
-
--- LUA_LS CONFIG
-lsp.configure("lua_ls", {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { "vim" },
-            },
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
+lsp_zero.set_preferences({
+    sign_icons = {},
 })
 
--- ROME CONFIG
-lsp.configure("rome", {
-    root_dir = lspUtils.root_pattern("rome.json"),
-    single_file_support = false,
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({
+        -- next and prev items
+        ["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+        ["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+
+        -- complete
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+
+        -- scroll up and down the documentation window
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    })
 })
 
--- TSSERVER CUSTOMIZATION
-lsp.configure("tsserver", {
-    root_dir = lspUtils.root_pattern("package.json"),
-    single_file_support = false,
-})
 
--- DENOLS CUSTOMIZATION
-lsp.configure("denols", {
-    root_dir = lspUtils.root_pattern("deno.json", "deno.jsonc"),
-    single_file_support = false,
-})
+lsp_zero.on_attach(on_attach)
 
-lsp.configure("tailwindcss", {
-    filetypes = {
-        -- html
-        "aspnetcorerazor",
-        "astro",
-        "astro-markdown",
-        "blade",
-        "clojure",
-        "django-html",
-        "htmldjango",
-        "edge",
-        "eelixir", -- vim ft
-        "elixir",
-        "ejs",
-        "erb",
-        "eruby", -- vim ft
-        "gohtml",
-        "haml",
-        "handlebars",
-        "hbs",
-        "html",
-        -- 'HTML (Eex)',
-        -- 'HTML (EEx)',
-        "html-eex",
-        "heex",
-        "jade",
-        "leaf",
-        "liquid",
-        "markdown",
-        "mdx",
-        "mustache",
-        "njk",
-        "nunjucks",
-        "php",
-        "razor",
-        "slim",
-        "twig",
-        -- css
-        "css",
-        "less",
-        "postcss",
-        "sass",
-        "scss",
-        "stylus",
-        "sugarss",
-        -- js
-        "javascript",
-        "javascriptreact",
-        "reason",
-        "rescript",
-        "typescript",
-        "typescriptreact",
-        -- mixed
-        "vue",
-        "svelte",
-        -- rust
-        "rust",
-    },
-    root_dir = lspUtils.root_pattern("tailwind.config.js", "tailwind.config.cjs"),
-})
+-- LSP CONFIGS
 
-lsp.setup()
-
--- DUMB LSP ZERO ERRORS
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -172,3 +74,59 @@ vim.diagnostic.config({
     underline = true,
     severity_sort = true,
 })
+
+lsp_zero.format_on_save({
+    format_opts = {
+        async = false,
+        timeout_ms = 10000,
+    },
+    servers = {
+        ['tsserver'] = { 'javascript', 'typescript' },
+        ['rust_analyzer'] = { 'rust' },
+    }
+})
+
+mason.setup({})
+mason_lspconfig.setup({
+    ensure_installed = { 'tsserver', 'rust_analyzer', 'astro', 'html', 'eslint' },
+    handlers = {
+        lsp_zero.default_setup,
+        lua_ls = function()
+            lspconfig.lua_ls.setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            })
+        end,
+    }
+})
+
+-- RUST
+
+require 'lspconfig'.rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            diagnostics = {
+                enable = false,
+            }
+        }
+    }
+}
+
+-- WEB
+
+require 'lspconfig'.astro.setup {}
+
+require 'lspconfig'.html.setup {}
+
+require'lspconfig'.eslint.setup{}
+
+-- GO
+
+require'lspconfig'.gopls.setup{}
+
+

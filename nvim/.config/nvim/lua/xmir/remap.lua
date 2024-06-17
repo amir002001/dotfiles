@@ -57,8 +57,5 @@ vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 -- adds execute priv to this file!!
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
--- LSP FORMAT ON SAVE
-vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
-
 -- fuck ctrl z
 vim.keymap.set("n", "<C-z>", "<nop>")

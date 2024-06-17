@@ -35,6 +35,7 @@ plugins=(
     fzf
     fzf-tab
     golang
+    aws
 )
 
 source $ZSH/oh-my-zsh.sh

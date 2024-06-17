@@ -24,9 +24,6 @@ return require("packer").startup(function(use)
     -- use({ "rose-pine/neovim", as = "rose-pine" })
     -- transparent bg
     use("xiyaowong/transparent.nvim")
-    -- null-ls and mason-null-ls
-    use("jay-babu/mason-null-ls.nvim")
-    use("jose-elias-alvarez/null-ls.nvim")
 
     --LuaLine
     use({
@@ -35,26 +32,18 @@ return require("packer").startup(function(use)
     })
 
     --LSP ZERO STUFF
-
     use({
         "VonHeikemen/lsp-zero.nvim",
-        branch = "v1.x",
+        branch = "v3.x",
         requires = {
-            { "neovim/nvim-lspconfig" },    -- Required
-            { "williamboman/mason.nvim" },  -- Optional
-            { "williamboman/mason-lspconfig.nvim" }, -- Optional
-
+            { 'williamboman/mason.nvim' },
+            { 'williamboman/mason-lspconfig.nvim' },
+            -- LSP Support
+            { "neovim/nvim-lspconfig" },
             -- Autocompletion
-            { "hrsh7th/nvim-cmp" }, -- Required
-            { "hrsh7th/cmp-nvim-lsp" }, -- Required
-            { "hrsh7th/cmp-buffer" }, -- Optional
-            { "hrsh7th/cmp-path" }, -- Optional
-            { "saadparwaiz1/cmp_luasnip" }, -- Optional
-            { "hrsh7th/cmp-nvim-lua" }, -- Optional
-
-            -- Snippets
-            { "L3MON4D3/LuaSnip" },    -- Required
-            { "rafamadriz/friendly-snippets" }, -- Optional
+            { "hrsh7th/nvim-cmp" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "L3MON4D3/LuaSnip" },
         },
     })
 
@@ -95,9 +84,7 @@ return require("packer").startup(function(use)
         "kylechui/nvim-surround",
         tag = "*", -- Use for stability; omit to use `main` branch for the latest features
         config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
+            require("nvim-surround").setup()
         end,
     })
     -- auto pairs
@@ -107,9 +94,9 @@ return require("packer").startup(function(use)
             require("nvim-autopairs").setup({})
         end,
     })
-    use("eandrju/cellular-automaton.nvim")
 
-    -- chad go
+    -- funny
+    use("eandrju/cellular-automaton.nvim")
 
     -- dap
     use("mfussenegger/nvim-dap")
@@ -119,15 +106,12 @@ return require("packer").startup(function(use)
     use("leoluz/nvim-dap-go")
 
     -- neovim dev
-    use({
-        "folke/neodev.nvim",
-        config = function()
-            require("neodev").setup()
-        end,
-    })
-
-    -- le duck? 🦆
-    use("tamton-aquib/duck.nvim")
+    -- use({
+    --     "folke/neodev.nvim",
+    --     config = function()
+    --         require("neodev").setup()
+    --     end,
+    -- })
 
     -- folds
     use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
