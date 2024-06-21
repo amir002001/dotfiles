@@ -99,19 +99,18 @@ return require("packer").startup(function(use)
     use("eandrju/cellular-automaton.nvim")
 
     -- dap
-    use("mfussenegger/nvim-dap")
-    use("rcarriga/nvim-dap-ui")
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     use("theHamsta/nvim-dap-virtual-text")
     use("nvim-telescope/telescope-dap.nvim")
     use("leoluz/nvim-dap-go")
 
-    -- neovim dev
-    -- use({
-    --     "folke/neodev.nvim",
-    --     config = function()
-    --         require("neodev").setup()
-    --     end,
-    -- })
+    -- format
+    use({
+      "stevearc/conform.nvim",
+      config = function()
+        require("conform").setup()
+      end,
+    })
 
     -- folds
     use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
