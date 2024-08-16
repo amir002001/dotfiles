@@ -42,6 +42,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 #   aliases
+
+
+
 if command -v nvim &> /dev/null; then
     alias vi="nvim"
     alias vim="nvim"
@@ -74,6 +77,7 @@ export FZF_DEFAULT_OPTS="
 "
 
 export PATH=~/go/bin:$PATH
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/22.0.1/libexec/openjdk.jdk/Contents/Home"
 
 # bun completions
 [ -s "/Users/amirhosseinazizafshari/.bun/_bun" ] && source "/Users/amirhosseinazizafshari/.bun/_bun"

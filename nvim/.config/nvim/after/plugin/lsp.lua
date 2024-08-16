@@ -107,11 +107,17 @@ require("lspconfig").rust_analyzer.setup({
 
 -- WEB
 
+require("lspconfig").emmet_language_server.setup({})
+
 require("lspconfig").astro.setup({})
 
 require("lspconfig").html.setup({})
 
 require("lspconfig").eslint.setup({})
+
+require("lspconfig").tailwindcss.setup({})
+
+require("lspconfig").tsserver.setup({})
 
 -- LUA
 
@@ -143,3 +149,23 @@ require("lspconfig").golangci_lint_ls.setup({})
 -- SHELL
 
 require("lspconfig").bashls.setup({})
+
+-- YAML
+require("lspconfig").yamlls.setup({
+	capabilities = {
+		textDocument = {
+			foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			},
+		},
+	},
+	redhat = {
+		telemetry = {
+			enabled = false,
+		},
+	},
+})
+
+-- JSON
+require("lspconfig").jsonls.setup({})
