@@ -12,3 +12,7 @@ hyper - f : yabai -m space --mirror y-axis
 # cycle backwards
 hyper - e : yabai -m window --focus east
 hyper - w : yabai -m window --focus west
+
+## toggle float
+hyper - h : yabai -m window --toggle float
+
