@@ -11,6 +11,7 @@ require("conform").setup({
 		python = { "isort", "black" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
+		astro = { "prettier" },
 		typescriptreact = { "prettier", "rustywind" },
 		go = { "gofumpt", "goimports" },
 		bash = { "shfmt" },

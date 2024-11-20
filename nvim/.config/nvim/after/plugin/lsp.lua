@@ -76,7 +76,7 @@ vim.diagnostic.config({
 
 mason.setup({})
 mason_lspconfig.setup({
-	ensure_installed = { "tsserver", "rust_analyzer", "astro", "html", "eslint", "golangci_lint_ls" },
+	ensure_installed = { "ts_ls", "rust_analyzer", "astro", "html", "eslint", "golangci_lint_ls" },
 	handlers = {
 		lsp_zero.default_setup,
 		lua_ls = function()
@@ -117,7 +117,7 @@ require("lspconfig").eslint.setup({})
 
 require("lspconfig").tailwindcss.setup({})
 
-require("lspconfig").tsserver.setup({})
+require("lspconfig").ts_ls.setup({})
 
 -- LUA
 

@@ -7,19 +7,20 @@
 # _/    _/  _/    _/_/_/    _/_/_/  _/        _/      _/_/    _/_/    _/_/_/
 #                                                                        _/
 #                                                                   _/_/
-import:
-  - ./rose-pine.yml
-live_config_reload: true
-window:
-  padding:
-    x: 0
-  dynamic_padding: false
-  decorations: buttonless
-  option_as_alt: OnlyLeft
-  opacity: 0.95
-font:
-  size: 14
-  normal:
-    family: VictorMono Nerd Font
-    key_bindings:
-      - { key: Z, mods: Control, action: None }
+[general]
+live_config_reload = true
+import = [
+    "~/.config/alacritty/themes/themes/enfocado_light.toml"
+]
+
+[window]
+dynamic_padding = true
+decorations = "buttonless"
+option_as_alt = "OnlyLeft"
+
+[font]
+size = 14
+
+[font.normal]
+family = "VictorMono Nerd Font"
+
