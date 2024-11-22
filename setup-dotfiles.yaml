@@ -10,13 +10,13 @@
         state: present
         update_cache: yes
     - name: Symlink dotfiles using GNU Stow
-      command: stow -t /home/{{ ansible_facts['user'] }} -d /home/{{ ansible_facts['user'] }}/dotfiles .
+      command: stow -t /home/{{ ansible_user_id }} -d /home/{{ ansible_user_id }}/dotfiles .
     - name: Change ownership of dotfiles
       file:
-        path: /home/{{ ansible_facts['user'] }}/dotfiles
+        path: /home/{{ ansible_user_id }}/dotfiles
         state: directory
-        owner: "{{ ansible_facts['user'] }}"
-        group: "{{ ansible_facts['user'] }}"
+        owner: "{{ ansible_user_id }}"
+        group: "{{ ansible_user_id }}"
     - name: Source shell configuration (optional)
       shell: source ~/.bashrc || true
       args:
