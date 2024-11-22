@@ -1,0 +1,23 @@
+- name: Set up dotfiles on Ubuntu
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Ensure essential packages are installed
+      apt:
+        name:
+          - git
+          - stow
+        state: present
+        update_cache: yes
+    - name: Symlink dotfiles using GNU Stow
+      command: stow -t /home/{{ ansible_user }} -d /home/{{ ansible_user }}/dotfiles .
+    - name: Change ownership of dotfiles
+      file:
+        path: /home/{{ ansible_user }}/dotfiles
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+    - name: Source shell configuration (optional)
+      shell: source ~/.bashrc || true
+      args:
+        executable: /bin/bash
