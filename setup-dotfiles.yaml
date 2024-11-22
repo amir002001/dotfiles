@@ -9,15 +9,18 @@
           - stow
         state: present
         update_cache: yes
-    - name: Symlink dotfiles using GNU Stow
-      command: stow -t ~ -d ~/dotfiles .
+    - name: Clone the dotfiles repository
+      git:
+        repo: https://github.com/amir002001/dotfiles.git
+        dest: /home/{{ ansible_user }}/dotfiles
+        version: main
+    - name: Symlink all dotfiles packages using Stow
+      command: stow -t /home/{{ ansible_user }} -d /home/{{ ansible_user }}/dotfiles *
+      args:
+        chdir: /home/{{ ansible_user }}/dotfiles
     - name: Change ownership of dotfiles
       file:
-        path: ~/dotfiles
+        path: /home/{{ ansible_user }}/dotfiles
         state: directory
-        owner: "{{ ansible_user_id }}"
-        group: "{{ ansible_user_id }}"
-    - name: Source shell configuration (optional)
-      shell: source ~/.bashrc || true
-      args:
-        executable: /bin/bash
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
