@@ -10,10 +10,10 @@
         state: present
         update_cache: yes
     - name: Symlink dotfiles using GNU Stow
-      command: stow -t /home/{{ ansible_user_id }} -d /home/{{ ansible_user_id }}/dotfiles .
+      command: stow -t ~ -d ~/dotfiles .
     - name: Change ownership of dotfiles
       file:
-        path: /home/{{ ansible_user_id }}/dotfiles
+        path: ~/dotfiles
         state: directory
         owner: "{{ ansible_user_id }}"
         group: "{{ ansible_user_id }}"
