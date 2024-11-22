@@ -67,10 +67,7 @@ export FZF_DEFAULT_OPTS="
 --reverse
 --height 60%
 --no-mouse
---color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
---color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
---color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
---color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4
+--color=fg:#000000,bg:#fffffe,hl:#c49701
 "
 
 export PATH=~/go/bin:$PATH
@@ -79,9 +76,6 @@ export JAVA_HOME="/opt/homebrew/Cellar/openjdk/22.0.1/libexec/openjdk.jdk/Conten
 # bun completions
 [ -s "/Users/amirhosseinazizafshari/.bun/_bun" ] && source "/Users/amirhosseinazizafshari/.bun/_bun"
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-if command -v op &> /dev/null; then
-    source /Users/amirhosseinazizafshari/.config/op/plugins.sh
-fi
 
 if command -v cowsay &> /dev/null; then
     ~/.scripts/cow-greet.sh
